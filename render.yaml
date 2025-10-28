@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: hack-a-cure-api
+    env: node
+    plan: free
+    rootDir: server
+    buildCommand: npm install && npm run build
+    startCommand: node dist/index.js
+    autoDeploy: true
+    healthCheckPath: /health
+    envVars:
+      - key: GOOGLE_API_KEY
+        sync: false  # Set in Render dashboard
