@@ -22,19 +22,6 @@ app.get("/health", (_req: Request, res: Response) => {
   res.json({ status: "ok" });
 });
 
-// Debug: list available Gemini models (helps choose a valid model ID for this API key)
-app.get("/debug/models", async (_req: Request, res: Response) => {
-  try {
-    const key = process.env.GOOGLE_API_KEY;
-    if (!key) return res.status(500).json({ error: "missing_api_key" });
-    const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${key}`);
-    const json = await resp.json();
-    res.status(resp.ok ? 200 : 502).json(json);
-  } catch (e: any) {
-    res.status(502).json({ error: "model_list_error", message: e?.message || String(e) });
-  }
-});
-
 // POST /query per evaluator spec
 app.post("/query", async (req: Request, res: Response) => {
   try {
