@@ -2,8 +2,9 @@
   "name": "hack-a-cure-service",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "nodemon --watch src --exec ts-node src/index.ts",
+  "dev": "nodemon --watch src --exec ts-node --esm src/index.ts",
     "start": "node dist/index.js",
     "build": "tsc -p tsconfig.json",
     "lint": "echo \"No linter configured\""

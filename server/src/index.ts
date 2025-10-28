@@ -1,8 +1,11 @@
 import dotenv from "dotenv";
 import path from "path";
+import { fileURLToPath } from "url";
 import express, { Request, Response, NextFunction } from "express";
-import { answerWithGemini } from "./lib/gemini";
+import { answerWithGemini } from "./lib/gemini.js";
 
+// __dirname replacement for ESM
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // Load .env from the project root (one level up from compiled dist folder)
 dotenv.config({ path: path.resolve(__dirname, "..", ".env") });
 

@@ -1,5 +1,5 @@
 import { GoogleGenerativeAI, SchemaType } from "@google/generative-ai";
-import { SYSTEM_PROMPT } from "../prompts/systemPrompt";
+import { SYSTEM_PROMPT } from "../prompts/systemPrompt.js";
 
 export type GeminiAnswer = {
   answer: string;
