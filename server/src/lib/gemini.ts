@@ -16,6 +16,7 @@ function buildModel() {
   model: "gemini-2.5-flash",
     systemInstruction: SYSTEM_PROMPT,
     generationConfig: {
+      temperature: 0.2,
       responseMimeType: "application/json",
       responseSchema: {
         type: SchemaType.OBJECT,
